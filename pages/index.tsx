@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { DocumentTableRow } from '../components/DocumentTableRow';
 import { Table, Container, Button, InputGroup, FormControl } from 'react-bootstrap';
 
 const Home: NextPage = () => {
@@ -65,7 +64,14 @@ const Home: NextPage = () => {
           <tbody>
             {docList.map(({ name }) => {
               return (
-                <DocumentTableRow key={name} name={name} removeDocFromList={removeDocFromList} />
+                <tr className='document-row' key={name}>
+                  <td>
+                    {name}
+                  </td>
+                  <td>
+                    <Button variant="danger" data-testid={`delete-${name}`} onClick={() => removeDocFromList(name)}>Delete me</Button>
+                  </td>
+                </tr>
               )
             })}
           </tbody>

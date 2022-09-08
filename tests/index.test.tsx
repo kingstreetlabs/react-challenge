@@ -1,6 +1,7 @@
 import Enzyme, { mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Home from '../pages';
 
 Enzyme.configure({ adapter: new Adapter() });

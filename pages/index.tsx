@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import {useState} from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { DocumentTableRow } from '../components/DocumentTableRow';
 import { Table, Container, Button, InputGroup, FormControl } from 'react-bootstrap';
 
 const Home: NextPage = () => {
@@ -62,16 +63,9 @@ const Home: NextPage = () => {
             </tr>
           </thead>
           <tbody>
-            {docList.map((d) => {
+            {docList.map(({ name }) => {
               return (
-                <tr key={d.name}>
-                  <td>
-                    {d.name}
-                  </td>
-                  <td>
-                    <Button variant="danger" data-testid={`delete-${d.name}`} onClick={() => removeDocFromList(d.name)}>Delete me</Button>
-                  </td>
-                </tr>
+                <DocumentTableRow key={name} name={name} removeDocFromList={removeDocFromList} />
               )
             })}
           </tbody>

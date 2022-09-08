@@ -8,7 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Home />', () => {
   // Enzyme version
-  it('renders the 1st default document', () => {
+  it('enzyme test', () => {
     const home = mount(<Home />);
     const documentTableRow = home.find('tr.document-row').at(0);
     const name = documentTableRow.find('td').at(0);
@@ -16,7 +16,7 @@ describe('<Home />', () => {
   });
 
   // RTL version
-  it('renders the 1st default document', () => {
+  it('rtl test', () => {
 
   });
 });

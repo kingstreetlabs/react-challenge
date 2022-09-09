@@ -10,8 +10,8 @@ describe('<Home />', () => {
   // Enzyme version
   it('enzyme test', () => {
     const home = mount(<Home />);
-    const documentTableRow = home.find('tr.document-row').at(0);
-    const name = documentTableRow.find('td').at(0);
+    const row = home.find('tr.document-row').at(0);
+    const name = row.find('td').at(0);
     expect(name.text()).toEqual('Doc 1');
   });
 

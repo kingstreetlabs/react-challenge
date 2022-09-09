@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import {useState} from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Container, Button, InputGroup, FormControl } from 'react-bootstrap';
 
@@ -62,14 +62,14 @@ const Home: NextPage = () => {
             </tr>
           </thead>
           <tbody>
-            {docList.map((d) => {
+            {docList.map(({ name }) => {
               return (
-                <tr key={d.name}>
+                <tr className='document-row' key={name}>
                   <td>
-                    {d.name}
+                    {name}
                   </td>
                   <td>
-                    <Button variant="danger" data-testid={`delete-${d.name}`} onClick={() => removeDocFromList(d.name)}>Delete me</Button>
+                    <Button variant="danger" data-testid={`delete-${name}`} onClick={() => removeDocFromList(name)}>Delete me</Button>
                   </td>
                 </tr>
               )

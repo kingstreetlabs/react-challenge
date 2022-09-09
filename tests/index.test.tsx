@@ -10,9 +10,11 @@ describe('<Home />', () => {
   // Enzyme version
   it('enzyme test', () => {
     const home = mount(<Home />);
-    const row = home.find('tr.document-row').at(0);
+    home.find('input').at(0).simulate('change', { target: { value: 'Doc 4' } });
+    home.find('button').at(0).simulate('click');
+    const row = home.find('tr.document-row').at(3);
     const name = row.find('td').at(0);
-    expect(name.text()).toEqual('Doc 1');
+    expect(name.text()).toEqual('Doc 4');
   });
 
   // RTL version
